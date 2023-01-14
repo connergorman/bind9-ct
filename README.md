@@ -1,5 +1,7 @@
+# BIND9 with DDNS container
 This project provides a Dockerfile which will run a BIND9 DNS server on port 53. The default configuration includes allowing for nsupdates from a tsig-key, which can then be used on a DHCP server to automatically update DNS with DHCP entries.
 
+## Preliminaries 
 Before running the dockerfile, ensure the following:
 1. Port 53 is open and unused on your host machine. Often systemd-resolved is using it, see FAQ below.
 2. Edit the 3 config files to suit your environemnt
@@ -8,9 +10,15 @@ Before running the dockerfile, ensure the following:
 	3. test.home.zone is a sample zone file. Make necessary edits to match your environments domain and IP range
 3. If running rootless podman, ensure port 53 can be mapped by a regular user (see FAQ)
 
+## Running the pod
+
+To run the container, you just have to publish the correct ports
+`podman run -p 53:53/udp -p 53:53/tcp -p 127.0.0.1:953:953/tcp -d bind`
+will run the container in the background. 
 
 
-FAQs
+
+# FAQs
 1. Port 53 is in use on my system
 	1. `sudo netstat -nlp | grep :53` shows the process
 	2. Unless you are already running a DNS server (BIND9 or other), this is likely from systemd-resolved
