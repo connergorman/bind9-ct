@@ -13,7 +13,9 @@ Before running the dockerfile, ensure the following:
 ## Running the pod
 
 To run the container, you just have to publish the correct ports
+
 `podman run -p 53:53/udp -p 53:53/tcp -p 127.0.0.1:953:953/tcp -d bind`
+
 will run the container in the background. 
 
 
