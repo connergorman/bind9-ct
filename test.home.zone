@@ -1,0 +1,17 @@
+;
+; BIND data file for test.home
+;
+$TTL	8700
+@	IN	SOA	bind.test.home. root.test.home. (
+			  2023011301		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+; Name servers
+@		IN	NS	bind.test.home.
+bind.test.home.	IN	A	10.0.0.4
+
+
+
