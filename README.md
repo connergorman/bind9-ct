@@ -22,6 +22,6 @@ FAQs
 2. Error with binding port 53 when running the pod as regular user
 	1. One option is to build and run the container as rootusing sudo
 	2. Another is to allow unprivileged users to map lower ports
-		1. add `net.ipv4.ip_unprivileged_port_start = 53" to /etc/sysctl.conf then run `sudo sysctl --system` to reload
+		1. add `net.ipv4.ip_unprivileged_port_start = 53` to `/etc/sysctl.conf` then run `sudo sysctl --system` to reload
 
 
